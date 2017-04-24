@@ -1,0 +1,9 @@
+<div class="dialog-container">
+  <h1 md-dialog-title>상품 등록</h1>
+  <div md-dialog-actions>
+    <md-input-container>
+      <input mdInput placeholder="바코드 입력" type="text" class="inputField" [(ngModel)]="barcode">
+    </md-input-container>
+    <button md-button color='primary' class='input-button' (click)="dialogRef.close(this.barcode)">등록</button>
+  </div>
+</div>

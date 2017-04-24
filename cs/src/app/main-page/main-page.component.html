@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="button-row">
+    <button md-raised-button class='btn' (click)='openEnrollDialog()'>상품 등록</button>
+    <button md-raised-button class='btn' (click)='openSellDialog()'>상품 판매</button>
+  </div>
+</div>
+
+
+<md-list>
+ <md-list-item> 최근 등록상품 : {{enrollProductBarcode}} </md-list-item>
+ <md-list-item> 최근 판매상품 : {{sellProductBarcode}} </md-list-item>
+</md-list>
+
+<h2>Item list</h2>
+<md-list>
+  <md-list-item *ngFor="let item of items | async">{{item.pName}}</md-list-item>
+</md-list>
