@@ -16,6 +16,12 @@ export class AF {
       method: AuthMethods.Popup,
     });
   }
+  loginWithFb() {
+   return this.af.auth.login({
+     provider: AuthProviders.Facebook,
+     method: AuthMethods.Popup,
+   });
+ }
   /**
    * Logs out the current user
    */

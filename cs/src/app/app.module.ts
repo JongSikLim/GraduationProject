@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppComponent } from './app.component';
+import { Ng2ImgFallbackModule } from 'ng2-img-fallback';
 
 //추가컴포넌트
 import { MainPageComponent } from './main-page/main-page.component';
@@ -15,6 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MdToolbarModule, MdDialogModule,MdInputModule, MdListModule} from '@angular/material';
+import {MdCardModule} from '@angular/material';
 import 'hammerjs';
 
 //angular firebase 모듈
@@ -54,13 +55,13 @@ const routes: Routes =[
     BrowserModule,
     FormsModule,
     HttpModule,
-
+    Ng2ImgFallbackModule,
     //angualr material module 추가
     MaterialRootModule, MaterialModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdToolbarModule, MdDialogModule,MdInputModule, MdListModule,
-
+    MdCardModule,
     //라우팅 추가
     RouterModule.forRoot(routes),
 
