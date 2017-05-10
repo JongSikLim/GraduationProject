@@ -12,6 +12,7 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 export class EnrollPageComponent implements OnInit {
   obj = {pName:'test'};
   barcode : string;
+  discount : string;
   constructor(public dialogRef: MdDialogRef<EnrollPageComponent>, private af : AngularFire) {}
 
   ngOnInit() {

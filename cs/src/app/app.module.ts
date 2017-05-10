@@ -15,7 +15,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MdToolbarModule, MdDialogModule,MdInputModule, MdListModule} from '@angular/material';
-import {MdCardModule} from '@angular/material';
+import {MdCardModule,MdGridListModule} from '@angular/material';
+
 import 'hammerjs';
 
 //angular firebase 모듈
@@ -27,6 +28,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { EnrollPageComponent } from './enroll-page/enroll-page.component';
 import { SellPageComponent } from './sell-page/sell-page.component';
 
+
+
+
+
+
 //angularfire를 이용하기 위해 필수적으로 선언
 export const firebaseConfig = {
   apiKey: 'AIzaSyA8GuXbqozFTGfLCZU3kbWSo2bPzIcIMcI',
@@ -35,6 +41,9 @@ export const firebaseConfig = {
   storageBucket: 'graduateproject-61cd9.appspot.com',
   messagingSenderId: '735303616311'
 };
+
+
+
 
 const routes: Routes =[
   {path:'', component:MainPageComponent},
@@ -61,7 +70,7 @@ const routes: Routes =[
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdToolbarModule, MdDialogModule,MdInputModule, MdListModule,
-    MdCardModule,
+    MdCardModule,MdGridListModule,
     //라우팅 추가
     RouterModule.forRoot(routes),
 

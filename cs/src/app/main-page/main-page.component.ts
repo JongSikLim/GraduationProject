@@ -13,7 +13,7 @@ export class MainPageComponent implements OnInit {
   enrollProductBarcode : string;
   sellProductBarcode : string;
   items : FirebaseListObservable<any[]>;
-  obj = {pName:''};
+  obj = {pName:'', pPrice:''};
   storage;
   constructor(public dialog : MdDialog, private af : AngularFire) {
       this.items = af.database.list('/items');
@@ -23,8 +23,8 @@ export class MainPageComponent implements OnInit {
     openEnrollDialog(){
       let dialogRef = this.dialog.open(EnrollPageComponent);
       dialogRef.afterClosed().subscribe(result=>{
-        this.enrollProductBarcode = result;
-        this.obj.pName = result;
+        this.enrollProductBarcode = result[0];
+        this.obj.pName = result[1];
         this.af.database.list('/items').push(this.obj);
       });
 
