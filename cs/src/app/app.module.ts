@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
-import { Ng2ImgFallbackModule } from 'ng2-img-fallback';
+
 
 //추가컴포넌트
 import { MainPageComponent } from './main-page/main-page.component';
@@ -55,7 +55,6 @@ const routes: Routes =[
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2ImgFallbackModule,
     //angualr material module 추가
     MaterialRootModule, MaterialModule,
     BrowserAnimationsModule,
