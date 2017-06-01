@@ -3,6 +3,7 @@ import {MdDialog, MdDialogRef} from '@angular/material';
 import {EnrollPageComponent} from '../enroll-page/enroll-page.component';
 import {SellPageComponent} from '../sell-page/sell-page.component';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-main-page',
@@ -14,7 +15,10 @@ export class MainPageComponent implements OnInit {
   sellProductBarcode : string;
   items : FirebaseListObservable<any[]>;
   obj = {pName:'', pPrice:''};
-  storage;
+  // storage = firebase.storage();
+  // storageRef = this.storage.ref();
+
+
   constructor(public dialog : MdDialog, private af : AngularFire) {
       this.items = af.database.list('/items');
 

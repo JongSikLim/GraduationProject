@@ -52,6 +52,8 @@ const routes: Routes =[
   {path:'enroll', component:EnrollPageComponent}
 ]
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,4 +83,11 @@ const routes: Routes =[
   providers: [AF],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+
+
+
+
+
+export class AppModule {
+}
