@@ -12,21 +12,34 @@
 </md-list>
 
 <h2>Item list</h2>
-<md-card class="example-card" *ngFor="let item of items | async">
-  <md-card-header>
-  </md-card-header>
 
-  <md-card-content>
-    <img md-card-image class="card-image" src="../assets/images/gimbap.jpg" >
+    <md-grid-list cols="3">
+        <md-grid-tile *ngFor="let item of items | async">
 
-    <md-card-title>{{item.pName}}</md-card-title>
-    <md-card-subtitle>Dog Breed</md-card-subtitle>
-  </md-card-content>
-  <md-card-actions>
-    <button md-button>예약하기</button>
-    <button md-button>바로구매</button>
-  </md-card-actions>
-</md-card>
-<md-list>
+            <md-card class="example-card">
+                <md-card-header>
+                  <!-- head contents -->
+                </md-card-header>
+
+                <md-card-content>
+                  <img md-card-image class="card-image" src="../assets/images/gimbap.jpg">
+                  <!-- <img md-card-image class="card-image" [src]="testImages"> -->
+                  <md-card-title>{{item.pName}}</md-card-title>
+                  <md-card-subtitle>판매 금액</md-card-subtitle>
+                </md-card-content>
+
+                <md-card-actions>
+                  <button md-button>예약하기</button>
+                  <!-- <input type="file" (change)="uploadImage($event)" value="예약하기"> -->
+                  <button md-button>바로구매</button>
+                </md-card-actions>
+            </md-card>
+
+        </md-grid-tile>
+    </md-grid-list>
+
+
+<!-- <md-list>
+>>>>>>> ff7e1dceb56ae3084e3d32346eee7b6659e132ca
   <md-list-item *ngFor="let item of items | async">{{item.pName}}</md-list-item>
-</md-list>
+</md-list> -->
