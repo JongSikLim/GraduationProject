@@ -6,10 +6,10 @@
 </div>
 
 
-<md-list>
+<!-- <md-list>
  <md-list-item> 최근 등록상품 : {{enrollProductBarcode}} </md-list-item>
  <md-list-item> 최근 판매상품 : {{sellProductBarcode}} </md-list-item>
-</md-list>
+</md-list> -->
 
 <h2>Item list</h2>
 
@@ -18,14 +18,18 @@
 
             <md-card class="example-card">
                 <md-card-header>
-                  <!-- head contents -->
+
                 </md-card-header>
 
                 <md-card-content>
-                  <img md-card-image class="card-image" src="../assets/images/gimbap.jpg">
-                  <!-- <img md-card-image class="card-image" [src]="testImages"> -->
+                  <!-- <img md-card-image class="card-image" src="../assets/images/gimbap.jpg"> -->
+                  <img md-card-image class="card-image" [src]="getUserProfileImage(item.barcode)" >
+                  <i class="material-icons" (click)="delete(item.$key)">close</i>
+
                   <md-card-title>{{item.pName}}</md-card-title>
-                  <md-card-subtitle>판매 금액</md-card-subtitle>
+                  <md-card-subtitle>원가: <del>{{item.pPrice}}</del> 판매금액: {{item.pDiscountPrice}}</md-card-subtitle>
+                  <md-card-subtitle>할인율: {{item.pDiscountPercent}}%</md-card-subtitle>
+
                 </md-card-content>
 
                 <md-card-actions>
@@ -37,6 +41,9 @@
 
         </md-grid-tile>
     </md-grid-list>
+
+
+
 
 
 <!-- <md-list>
