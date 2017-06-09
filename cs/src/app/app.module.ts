@@ -31,6 +31,10 @@ import { SellPageComponent } from './sell-page/sell-page.component';
 //service 목록
 import {StorageService} from "./providers/storage.service";
 
+//Modal 모듈
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
 
 //angularfire를 이용하기 위해 필수적으로 선언
 export const firebaseConfig = {
@@ -75,7 +79,12 @@ const routes: Routes =[
     RouterModule.forRoot(routes),
 
     //파이어베이스 초기화
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+
+    //Modal 사용을 위한 것
+    ModalModule.forRoot(),
+    BootstrapModalModule
+
   ],
 //  exports: [MdButtonModule, MdCheckboxModule],
   providers: [

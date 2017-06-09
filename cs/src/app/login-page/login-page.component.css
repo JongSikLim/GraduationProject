@@ -1,3 +1,8 @@
+#top{
+  width: 100%;
+  height: fill;
+}
+
 loginmodal-container {
   padding: 30px;
   max-width: 350px;

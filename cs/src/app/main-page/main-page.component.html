@@ -1,52 +1,40 @@
-<div class="container">
-  <div class="button-row">
-    <button md-raised-button class='btn' (click)='openEnrollDialog()'>상품 등록</button>
-    <button md-raised-button class='btn' (click)='openSellDialog()'>상품 판매</button>
-  </div>
+
+
+
+<div class='body'>
+
+
+
+      <div class="list-box col-md-offset-1 col-md-10 col-md-offset-1">
+        <div class="row text-center">
+
+          <div class="alert alert-success" style="padding:10px" role="alert">
+            <strong>여기는 나눔과 사랑이 가득한 JS 편의점입니다.</strong>
+            <p>상품등록은 <strong><a (click)='openEnrollDialog()'>여기</a></strong>를 눌러주세요.</p>
+          </div>
+
+
+
+            <div class="col-md-3 col-sm-6 hero-feature" *ngFor="let item of items | async">
+                <div class="thumbnail" >
+                    <img class='img-size' [src]="item.url" alt="">
+                    <hr>
+                    <div class="caption">
+                        <h3>{{item.pName}}</h3>
+                        <div class="row">
+                          <div class='col-sm-offset-1 col-sm-4'>
+                            <h5>원가: <del>{{item.pPrice}}원</del></h5>
+                          </div>
+                          <div class='col-sm-offset-1 col-sm-5'>
+                              <h5>판매금액: {{item.pDiscountPrice}}원</h5>
+                          </div>
+                        </div>
+                        <div class='row'><h4>할인율: {{item.pDiscountPercent}}%</h4></div>
+
+                        <a href="#" class="btn btn-primary">예약하기</a> <button  class="btn btn-success" (click)="openModal(item.$key)">바로구매</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
 </div>
-
-
-<!-- <md-list>
- <md-list-item> 최근 등록상품 : {{enrollProductBarcode}} </md-list-item>
- <md-list-item> 최근 판매상품 : {{sellProductBarcode}} </md-list-item>
-</md-list> -->
-
-<h2>Item list</h2>
-
-    <md-grid-list cols="3">
-        <md-grid-tile *ngFor="let item of items | async">
-
-            <md-card class="example-card">
-                <md-card-header>
-
-                </md-card-header>
-
-                <md-card-content>
-                  <!-- <img md-card-image class="card-image" src="../assets/images/gimbap.jpg"> -->
-                  <img md-card-image class="card-image" [src]="getUserProfileImage(item.barcode)" >
-                  <i class="material-icons" (click)="delete(item.$key)">close</i>
-
-                  <md-card-title>{{item.pName}}</md-card-title>
-                  <md-card-subtitle>원가: <del>{{item.pPrice}}</del> 판매금액: {{item.pDiscountPrice}}</md-card-subtitle>
-                  <md-card-subtitle>할인율: {{item.pDiscountPercent}}%</md-card-subtitle>
-
-                </md-card-content>
-
-                <md-card-actions>
-                  <button md-button>예약하기</button>
-                  <!-- <input type="file" (change)="uploadImage($event)" value="예약하기"> -->
-                  <button md-button>바로구매</button>
-                </md-card-actions>
-            </md-card>
-
-        </md-grid-tile>
-    </md-grid-list>
-
-
-
-
-
-<!-- <md-list>
->>>>>>> ff7e1dceb56ae3084e3d32346eee7b6659e132ca
-  <md-list-item *ngFor="let item of items | async">{{item.pName}}</md-list-item>
-</md-list> -->

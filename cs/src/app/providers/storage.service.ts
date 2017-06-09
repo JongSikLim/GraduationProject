@@ -6,7 +6,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Injectable()
 export class StorageService {
   storageRef = firebase.storage().ref();
-
   file = File;
   // gsReference = firebase.storage().refFromURL('gs://graduateproject-61cd9.appspot.com/productImages/1.jpg');
   gsURL;
@@ -26,22 +25,10 @@ export class StorageService {
     });
   }
 
-  download(){
-    let storage = firebase.storage();
-    let productsRef = this.storageRef.child('productImages/');
-
-
-
+  download(url:string):any{
+    let storageRef = firebase.storage().ref();
+    console.log("in Service: "+url);
+    return storageRef.child('productImages/'+url+'.jpg').getDownloadURL();
   }
-  // // Upload the file and metadata
-  // var uploadTask = storageRef.child('images/mountains.jpg').put(file);
-  //
-  // // Pause the upload
-  // uploadTask.pause();
-  //
-  // // Resume the upload
-  // uploadTask.resume();
-  //
-  // // Cancel the upload
-  // uploadTask.cancel();
+
 }
