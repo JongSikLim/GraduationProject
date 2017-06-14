@@ -1,7 +1,13 @@
 .body{
-  margin: 100px auto;
+  /*margin: 100px auto;*/
+  /*background-image: url('../../assets/images/background.jpg');*/
 }
+
 .img-size{
   width: 80%;
   height: 80%;
+}
+
+.map-title{
+  text-align:  center;
 }

@@ -1,11 +1,17 @@
 
 <!-- Header -->
-<header id="top" class="header">
+
+<header id='top'  class="header">
     <div class="text-vertical-center">
         <h1>편의점 폐기상품 알림 시스템</h1>
         <h3>포스기 프로그램 구현 웹사이트</h3>
         <br>
-        <button class="btn btn-dark btn-lg" (click)="loginGoogle()">Login With Google</button>
-        <button class="btn btn-dark btn-lg" (click)="loginFb()">Login With Facebook</button>
+        <div class="row line">
+          <button class="btn btn-dark btn-lg" (click)="loginGoogle()">Login With Google</button>
+          <button class="btn btn-dark btn-lg" (click)="loginFb()">Login With Facebook</button>
+        </div>
+        <div class="row line">
+          <button class="btn btn-dark btn-lg" routerLink="/sign-up-franchisee">SignUp-Franchisee</button>
+        </div>
     </div>
 </header>

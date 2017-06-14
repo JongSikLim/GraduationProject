@@ -15,7 +15,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule, MdCheckboxModule} from '@angular/material';
 import {MdToolbarModule, MdDialogModule,MdInputModule, MdListModule} from '@angular/material';
-import {MdCardModule,MdGridListModule} from '@angular/material';
+import {MdCardModule,MdGridListModule,MdSelectModule} from '@angular/material';
 
 import 'hammerjs';
 
@@ -30,10 +30,23 @@ import { SellPageComponent } from './sell-page/sell-page.component';
 
 //service 목록
 import {StorageService} from "./providers/storage.service";
+import {UserService} from './providers/user.service';
+
 
 //Modal 모듈
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
+//google maps 모듈
+
+import { MapComponent } from './map/map.component';
+import { SignUpFranchiseeComponent } from './sign-up-franchisee/sign-up-franchisee.component';
+
+//google maps new version ㅡㅡ
+import { AgmCoreModule } from '@agm/core';
+import { OwnerEnrollMapComponent } from './owner-enroll-map/owner-enroll-map.component';
+import { ManagementFranchiseeComponent } from './management-franchisee/management-franchisee.component';
+
 
 
 //angularfire를 이용하기 위해 필수적으로 선언
@@ -52,7 +65,9 @@ const routes: Routes =[
   {path:'', component:MainPageComponent},
   {path:'login', component:LoginPageComponent},
   {path:'sell', component:SellPageComponent},
-  {path:'enroll', component:EnrollPageComponent}
+  {path:'enroll', component:EnrollPageComponent},
+  {path:'sign-up-franchisee', component: SignUpFranchiseeComponent},
+  {path:'management-franchisee', component: ManagementFranchiseeComponent},
 ]
 
 
@@ -63,18 +78,22 @@ const routes: Routes =[
     MainPageComponent,
     LoginPageComponent,
     EnrollPageComponent,
-    SellPageComponent
+    SellPageComponent,
+    MapComponent,
+    SignUpFranchiseeComponent,
+    OwnerEnrollMapComponent,
+    ManagementFranchiseeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     //angualr material module 추가
-    MaterialRootModule, MaterialModule,
+    MaterialRootModule, MaterialModule.forRoot(),
     BrowserAnimationsModule,
     NoopAnimationsModule,
     MdButtonModule, MdCheckboxModule, MdToolbarModule, MdDialogModule,MdInputModule, MdListModule,
-    MdCardModule,MdGridListModule,
+    MdCardModule,MdGridListModule,MdSelectModule,
     //라우팅 추가
     RouterModule.forRoot(routes),
 
@@ -83,13 +102,18 @@ const routes: Routes =[
 
     //Modal 사용을 위한 것
     ModalModule.forRoot(),
-    BootstrapModalModule
+    BootstrapModalModule,
 
+    //google maps api
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyE3Mvk6SeAavZoSMWdW-1wczZOp5As0Q'
+    })
   ],
 //  exports: [MdButtonModule, MdCheckboxModule],
   providers: [
     AF,
-    StorageService
+    StorageService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

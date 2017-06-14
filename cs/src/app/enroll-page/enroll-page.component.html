@@ -22,9 +22,16 @@
       <input mdInput placeholder="할인율 입력" type="text" class="inputField" [(ngModel)]="discount">
     </md-input-container>
     </tr>
+    <tr>
+      <md-select placeholder="편의점 선택" class="inputField" [(ngModel)]="selectedCVS">
+        <md-option *ngFor="let cvs of cvsInfo | async" [value]="cvs.name">
+          {{ cvs.name }}
+        </md-option>
+      </md-select>
+    </tr>
     </table>
 
-    <button md-button color='primary' class='input-button' (click)="dialogRef.close([this.barcode,this.discount])">등록</button>
+    <button md-button color='primary' class='input-button' (click)="dialogRef.close([this.barcode,this.discount, this.selectedCVS])">등록</button>
 
   </div>
 </div>

@@ -29,12 +29,25 @@
                               <h5>판매금액: {{item.pDiscountPrice}}원</h5>
                           </div>
                         </div>
-                        <div class='row'><h4>할인율: {{item.pDiscountPercent}}%</h4></div>
+                        <div class='row'>
+                          <div class="col-sm-6">
+                            <h4>{{item.location}}</h4>
+                          </div>
+                          <div class="col-sm-6">
+                            <h4>할인율: {{item.pDiscountPercent}}%</h4>
+                          </div>
+                        </div>
 
                         <a href="#" class="btn btn-primary">예약하기</a> <button  class="btn btn-success" (click)="openModal(item.$key)">바로구매</button>
                     </div>
                 </div>
             </div>
           </div>
+      <!-- map container -->
+          <h1 class='map-title'>내 주변위치의 편의점</h1>
+          <div class="map-container col-sm-offset-3">
+            <app-map></app-map>
+          </div>
+
       </div>
 </div>

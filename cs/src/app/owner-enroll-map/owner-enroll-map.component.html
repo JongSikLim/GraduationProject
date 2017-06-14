@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6">
+      <div class="form-group">
+        <label for="textinput" class="col-md-3 control-label">위도</label>
+        <div class="col-md-9">
+          <input id="textinput" placeholder="지도상의 편의점 위치를 클릭해주세요" class="form-control input-md" [(ngModel)]="clickCoords.lat" type="text">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="textinput" class="col-md-3 control-label">경도</label>
+        <div class="col-md-9">
+          <input id="textinput" class="form-control input-md" [(ngModel)]="clickCoords.lng" type="text">
+        </div>
+      </div>
+  </div>
+  <div class='col-md-6'>
+    <agm-map class="map" [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="getCoordinate($event)">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+  </div>
+</div>

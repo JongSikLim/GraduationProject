@@ -10,6 +10,9 @@ import {StorageService} from '../providers/storage.service';
 import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { Overlay } from 'angular2-modal';
 
+//auth
+import { AF } from '../providers/af';
+import { Router } from '@angular/router'
 
 
 
@@ -19,6 +22,9 @@ import { Overlay } from 'angular2-modal';
   styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
+
+  photo:string = '../../assets/images/background.jpg';
+
   enrollProductBarcode : string;
   sellProductBarcode : string;
   items : FirebaseListObservable<any[]>;
@@ -31,7 +37,8 @@ export class MainPageComponent implements OnInit {
        pPrice:0,
        pDiscountPrice:0,
        pDiscountPercent:0,
-       url:''
+       url:'',
+       location:''
      };
   testImage;
   db;
@@ -43,13 +50,28 @@ export class MainPageComponent implements OnInit {
     , private ref : StorageService
     , overlay: Overlay
     , vcRef: ViewContainerRef
-    , public modal: Modal) {
+    , public modal: Modal
+    , private afService: AF, private router: Router) {
       overlay.defaultViewContainer = vcRef;
       this.db = af.database;
       this.items = af.database.list('/items');
       this.pInfo = af.database.list('/productDatabase');
       this.storage = ref;
       this.testImage=ref.storageRef.child('productImages/1.jpg').getDownloadURL().then(url=>this.testImage = url);
+
+
+      //authentic check Again
+      this.afService.af.auth.subscribe(
+        (auth) => {
+          if(auth == null) {
+            //비로그인 상태 체킹 후 로그인 화면으로 전환.
+            //alert('로그인을 하세요!');
+            this.router.navigate(['login']);
+          }
+        }
+      );
+
+
     }
 
     openEnrollDialog(){
@@ -59,12 +81,12 @@ export class MainPageComponent implements OnInit {
         this.product.subscribe(snapshot=>{
           this.ref.download(result[0]).then((res=>{
               this.obj.url = res;
-              console.log(res);
               this.obj.barcode=result[0];
               this.obj.pName = snapshot.val().name;
               this.obj.pPrice = snapshot.val().price;
               this.obj.pDiscountPercent = result[1];
-              this.obj.pDiscountPrice = result[1] * this.obj.pPrice * 0.01;
+              this.obj.pDiscountPrice = this.obj.pPrice * (1 - (this.obj.pDiscountPercent*0.01))
+              this.obj.location = result[2];
               this.af.database.list('/items').push(this.obj);
           } ));
         });

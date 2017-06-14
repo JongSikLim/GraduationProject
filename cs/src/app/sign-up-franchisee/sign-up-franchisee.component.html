@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <h2>편의점 등록페이지 - Regist your CVS</h2>
+    <section class="form-horizontal">
+      <fieldset>
+
+        <!-- Form Name -->
+        <legend>Register Here</legend>
+        <div class="row">
+          <div class='col-md-4 input-field'>
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="textinput">점장 이름</label>
+            <div class="col-md-9">
+              <input id="textinput" placeholder="Insert your First Name" class="form-control input-md" [value]="owner.name" type="text">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="textinput">Email</label>
+            <div class="col-md-9">
+              <input id="textinput" placeholder="Insert your Email" class="form-control input-md" [value]="owner.email" type="text">
+            </div>
+          </div>
+
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="textinput">가게 이름</label>
+            <div class="col-md-9">
+              <input id="textinput" placeholder="Insert your cvs Name" class="form-control input-md" [(ngModel)]='cvsInfo.cvsName' type="text">
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-3 control-label" for="singlebutton"> </label>
+            <div class="col-md-5">
+              <button id="singlebutton" name="singlebutton" class="btn btn-primary"  (click)="pushCVSInfo()">체인점 등록</button>
+            </div>
+          </div>
+          </div>
+          <div class='col-md-8 map-field'>
+              <app-owner-enroll-map (outEventEmitter)="getCoords($event)"></app-owner-enroll-map>
+          </div>
+        </div>
+
+      </fieldset>
+    </section>
+
+  </div>
+</div>
