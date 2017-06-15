@@ -8,19 +8,17 @@
       <div class="list-box col-md-offset-1 col-md-10 col-md-offset-1">
         <div class="row text-center">
 
-          <div class="alert alert-success" style="padding:10px" role="alert">
-            <strong>여기는 나눔과 사랑이 가득한 JS 편의점입니다.</strong>
-            <p>상품등록은 <strong><a (click)='openEnrollDialog()'>여기</a></strong>를 눌러주세요.</p>
-          </div>
 
 
 
-            <div class="col-md-3 col-sm-6 hero-feature" *ngFor="let item of items | async">
+
+            <div class="col-md-3 col-xs-6 hero-feature" *ngFor="let item of items | async">
                 <div class="thumbnail" >
                     <img class='img-size' [src]="item.url" alt="">
                     <hr>
                     <div class="caption">
-                        <h3>{{item.pName}}</h3>
+                        <h3 class="pName">{{item.pName}}</h3>
+
                         <div class="row">
                           <div class='col-sm-offset-1 col-sm-4'>
                             <h5>원가: <del>{{item.pPrice}}원</del></h5>
@@ -29,6 +27,7 @@
                               <h5>판매금액: {{item.pDiscountPrice}}원</h5>
                           </div>
                         </div>
+
                         <div class='row'>
                           <div class="col-sm-6">
                             <h4>{{item.location}}</h4>
@@ -42,6 +41,8 @@
                     </div>
                 </div>
             </div>
+
+
           </div>
       <!-- map container -->
           <h1 class='map-title'>내 주변위치의 편의점</h1>

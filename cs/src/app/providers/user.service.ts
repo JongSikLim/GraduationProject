@@ -3,7 +3,7 @@ import { AngularFire, FirebaseListObservable, AngularFireAuth } from 'angularfir
 import { AF } from './af';
 
 @Injectable()
-export class UserService {
+export class UserService  {
   userRef:FirebaseListObservable<any>;
   constructor(private af: AngularFire, private afLoginService : AF){
     this.userRef = af.database.list('/user');
@@ -23,7 +23,14 @@ export class UserService {
       }
     });
   }
-
+  userFranchiseeChange(uid){
+    return this.af.database.list('/user',{
+      query:{
+        orderByChild:'uid',
+        equalTo:uid
+      }
+    });
+  }
   userUpdate(key){
     this.userRef.update(key, {isFranchisee: true});
     console.log("프랜차이즈 등록 완료");

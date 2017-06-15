@@ -12,3 +12,14 @@
 tr{
   margin-top: 20px;
 }
+
+.master{
+  display: inline-block;
+}
+.btn-group{
+  display: inline-block;
+  margin-top: 30px;
+}
+.margin-topp{
+  margin-top: 1000%;
+}

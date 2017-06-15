@@ -31,7 +31,7 @@ import { SellPageComponent } from './sell-page/sell-page.component';
 //service 목록
 import {StorageService} from "./providers/storage.service";
 import {UserService} from './providers/user.service';
-
+import {CvsService} from './providers/cvs.service';
 
 //Modal 모듈
 import { ModalModule } from 'angular2-modal';
@@ -113,7 +113,8 @@ const routes: Routes =[
   providers: [
     AF,
     StorageService,
-    UserService
+    UserService,
+    CvsService
   ],
   bootstrap: [AppComponent]
 })

@@ -12,29 +12,29 @@ import { UserService } from './providers/user.service';
 export class AppComponent {
   public isLoggedIn: boolean;
   private isFranchisee: boolean;
-  private uid: string;
+  uid;
   constructor(public afService: AF, private router: Router, private userService : UserService) {
+
 
     this.afService.af.auth.subscribe(
       (auth) => {
         if(auth == null) {
           //비로그인 상태 체킹 후 로그인 화면으로 전환.
-          this.router.navigate(['login']);
+
           this.isLoggedIn = false;
+          this.router.navigate(['login']);
+
 
         }
         else {
           this.isLoggedIn = true;
-          // 메인화면으로 라우트
+          this.userService.userFranchiseeChange(auth.uid).subscribe((res)=>{
+            this.isFranchisee=res[0].isFranchisee;
+          });
+
           this.router.navigate(['']);
-          this.uid = auth.uid;
         }
-        this.userService.getNowUserInfo().subscribe((res)=>{
-          this.isFranchisee = res[0].isFranchisee;
-        });
-
       }
-
     );
 
 
@@ -43,6 +43,10 @@ export class AppComponent {
     this.afService.logout();
   }
   ngOnInit(){
-
+    // this.userService.getNowUserInfo().subscribe((res)=>{
+    //     console.log('먼저');
+    //     if(res){this.isFranchisee = res[0].isFranchisee; console.log(res[0].isFranchisee)}
+    //     else{console.log("없다.");}
+    // });
   }
 }

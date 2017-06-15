@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2'
-import {AF} from '../providers/af';
 import 'rxjs/add/operator/first';
 import { UserService } from '../providers/user.service';
 import { OwnerEnrollMapComponent } from '../owner-enroll-map/owner-enroll-map.component';
+
 @Component({
   selector: 'app-sign-up-franchisee',
   templateUrl: './sign-up-franchisee.component.html',
@@ -18,7 +18,7 @@ export class SignUpFranchiseeComponent implements OnInit {
     lat:'',
     lng:''
   }
-  constructor(private af : AngularFire, private afService : AF, private userService: UserService) {}
+  constructor(private af : AngularFire,  private userService: UserService) {}
   ngOnInit() {
     this.owner = this.userService.getNowUserInfo();
     this.owner.subscribe(res => {this.owner = res[0];});
@@ -36,6 +36,8 @@ export class SignUpFranchiseeComponent implements OnInit {
       this.userService.userUpdate(this.owner.$key);
     }).catch(()=>{
       console.log('데이터 업데이트 실패');
+      alert("등록에 실패했습니다.");
+
     });
   }
 }

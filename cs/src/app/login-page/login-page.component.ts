@@ -22,13 +22,15 @@ export class LoginPageComponent implements OnInit {
 
   loginGoogle(){
     this.afService.loginWithGoogle().then((data)=>{
-      //함수 호출이후에 메인페이지로 접속
-      this.router.navigate(['']);
+
       this.userInfo.name = data.auth.displayName;
       this.userInfo.email = data.auth.email
       this.userInfo.photoURL = data.auth.photoURL
       this.userInfo.uid = data.uid;
       this.checkedUser();
+      //함수 호출이후에 메인페이지로 접속
+      this.router.navigate(['']);
+
     })
   }
   loginFb(){

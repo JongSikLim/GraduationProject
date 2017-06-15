@@ -11,3 +11,12 @@
 .map-title{
   text-align:  center;
 }
+
+hr{
+  margin-top: 5px;
+  margin-bottom:5px;
+}
+h3.pName{
+  margin-top: 5px;
+  margin-bottom:5px;
+}

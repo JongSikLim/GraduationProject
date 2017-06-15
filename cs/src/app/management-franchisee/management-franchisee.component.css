@@ -1,0 +1,25 @@
+.btn-group{
+  margin-top: 30px;
+}
+.btn-custom{
+  margin: 2px;
+
+}
+.menu-title{
+  margin-top: 15px;
+}
+.img-size{
+  width: 50%;
+  height: 50%;
+}
+.product-info{
+  margin-top: 0px;
+}
+hr{
+  margin-top: 5px;
+  margin-bottom:5px;
+}
+h3.pName{
+  margin-top: 5px;
+  margin-bottom:5px;
+}

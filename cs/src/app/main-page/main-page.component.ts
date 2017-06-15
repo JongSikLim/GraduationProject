@@ -1,11 +1,10 @@
 import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import {MdDialog, MdDialogRef} from '@angular/material';
 import {EnrollPageComponent} from '../enroll-page/enroll-page.component';
-import {SellPageComponent} from '../sell-page/sell-page.component';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import {StorageService} from '../providers/storage.service';
 
-
+import {SellPageComponent } from '../sell-page/sell-page.component';
 //for modal
 import { Modal } from 'angular2-modal/plugins/bootstrap';
 import { Overlay } from 'angular2-modal';
@@ -48,10 +47,13 @@ export class MainPageComponent implements OnInit {
     public dialog : MdDialog
     , private af : AngularFire
     , private ref : StorageService
-    , overlay: Overlay
-    , vcRef: ViewContainerRef
     , public modal: Modal
-    , private afService: AF, private router: Router) {
+    , private afService: AF
+    , private router: Router
+    , private overlay: Overlay
+    , private vcRef: ViewContainerRef) {
+
+
       overlay.defaultViewContainer = vcRef;
       this.db = af.database;
       this.items = af.database.list('/items');
